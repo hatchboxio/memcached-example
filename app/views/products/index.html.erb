@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<%= Rails.cache.fetch("time", expires_in: 5.minutes) do %>
+  <%= Time.current %>
+<% end %>
+
+<h1>Products</h1>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <% cache product do %>
+      <%= render product %>
+    <% end %>
+
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New product", new_product_path %>
