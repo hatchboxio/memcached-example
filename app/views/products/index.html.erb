@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<p>Cached: <%= Rails.cache.fetch("time", expires_in: 5.minutes) { Time.current } %></p>
+<p>Cached: <%= Rails.cache.fetch("time", expires_in: 30.seconds) { Time.current } %> for 30 seconds</p>
 
 <h1>Products</h1>
 
